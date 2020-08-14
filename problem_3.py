@@ -2,22 +2,23 @@
 
 #What is the largest prime factor of the number 600851475143 ?
 
+import math
+
 def get_factors(n):
     factors = []
-    if n % 2 == 0:
-        for x in range (1, int(n / 2)):
-            
-    else:
-        for x in range (1, int((n + 1) / 2)):
-            print(x)
+    for x in range(1, int(math.sqrt(n) + 1)):
+        if n % x == 0:
+            factors.append(x)
+            factors.append(n // x)
+    return factors
 
 def is_prime(n):
-    if n % 2 != 0 and n % 3 != 0 and n % 5 != 0:
-        return True
-    else:
-        return False
+    return len(get_factors(n)) == 2
 
 def largest_prime(n):
-    get_factors(n)
+    factors = get_factors(n)
+    for x in reversed(factors):
+        if is_prime(x):
+            return x
 
-largest_prime(600851475143)
+print(largest_prime(600851475143))
