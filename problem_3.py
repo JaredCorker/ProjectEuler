@@ -17,8 +17,10 @@ def is_prime(n):
 
 def largest_prime(n):
     factors = get_factors(n)
-    for x in reversed(factors):
-        if is_prime(x):
-            return x
+    largest_prime = 0
+    for x in factors:
+        if is_prime(x) and x > largest_prime:
+            largest_prime = x
+    return largest_prime
 
 print(largest_prime(600851475143))
