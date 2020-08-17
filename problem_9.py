@@ -9,3 +9,17 @@
 def pythagorean_triplet():
     a = 1
     b = 2
+    c = 1000 - (a + b)
+
+    while (a < b < c):
+        while (b < c):
+            if a ** 2 + b ** 2 == c ** 2:
+                d = a * b * c
+                return (a, b, c, d)
+            b += 1
+            c = 1000 - (a + b)
+        a += 1
+        b = a + 1
+        c = 1000 - (a + b)
+
+print(pythagorean_triplet())
