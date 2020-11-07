@@ -2,11 +2,7 @@
 
 # What is the sum of the digits of the number 2^1000?
 
-exponential = 2 ** 1000
-sum = 0
+def sum_digits(n):
+    return sum([int(x) for x in str(n)])
 
-
-for i in str(exponential):
-    sum += int(i)
-
-print(sum)
+print(sum_digits(2 ** 1000))
