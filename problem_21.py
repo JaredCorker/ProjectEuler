@@ -6,7 +6,6 @@
 # Evaluate the sum of all the amicable numbers under 10000.
 
 import math
-from tqdm import tqdm
 
 def sum_factors(n):
     factors = [1]
@@ -16,12 +15,12 @@ def sum_factors(n):
             factors.append(n // i)
     return sum(factors)
 
-def is_amicable(n):
-    return n == sum_factors(sum_factors(n)) 
+def is_amicable(a):
+    b = sum_factors(a)
+    return a == sum_factors(b) and a != b
 
 sum_amicable = 0
-for i in tqdm(range(2, 10001)):
-    if is_amicable(i):
-        sum_amicable
+for i in range(2, 10001):
+    if is_amicable(i): sum_amicable += i
 
 print(sum_amicable)
